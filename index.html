@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaibhav Veda Green Ventures</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--g-deep:#071a0e;--g-dark:#0f4a28;--g-mid:#1a7a4a;--g-bright:#22c55e;--g-soft:#4ade80;--gold:#d4af37;--gold-l:#f0d060;--gold-p:#fffbe8;--white:#ffffff;--off:#f5fdf7;--td:#071a0e;--tm:#2d5a3d;--tl:#6b9e7a;--br:1px solid rgba(26,122,74,0.12);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--off);color:var(--td);overflow-x:hidden;}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--g-deep);}
+::-webkit-scrollbar-thumb{background:var(--gold);}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;width:100%;z-index:1000;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(255,255,255,0.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,175,55,0.15);transition:box-shadow .3s;}
+.nav.scrolled{box-shadow:0 4px 30px rgba(10,46,26,0.1);}
+.nav-logo{display:flex;align-items:center;gap:6px;text-decoration:none;}
+.logo-area{height:64px;display:flex;align-items:center;overflow:visible;}
+.logo-area img{height:56px;width:auto;object-fit:contain;transition:height .3s;}
+.nav.scrolled .logo-area img{height:44px;}
+
+.nav-links{display:flex;align-items:center;gap:28px;}
+.nav-links a{font-size:13.5px;font-weight:500;color:var(--tm);text-decoration:none;position:relative;transition:color .25s;}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1.5px;background:linear-gradient(90deg,var(--g-mid),var(--gold));border-radius:2px;transition:width .3s;}
+.nav-links a:hover{color:var(--g-mid);}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+.nav-links a.active{color:var(--g-mid);}
+.btn-cta{background:linear-gradient(135deg,var(--g-mid),var(--g-dark))!important;color:#fff!important;padding:9px 22px;border-radius:50px;font-weight:600!important;}
+.btn-cta::after{display:none!important;}
+.btn-cta:hover{box-shadow:0 6px 20px rgba(26,122,74,0.4);transform:translateY(-2px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--g-dark);border-radius:2px;transition:all .3s;}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+.mobile-nav{display:none;position:fixed;top:70px;left:0;width:100%;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);padding:20px 5% 30px;flex-direction:column;gap:4px;border-bottom:2px solid rgba(212,175,55,0.2);z-index:999;}
+.mobile-nav a{font-size:15px;font-weight:500;color:var(--td);text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(212,175,55,0.1);}
+.mobile-nav.show{display:flex;}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;background:linear-gradient(160deg,#050f08 0%,#071a0e 40%,#0a2a14 70%,#0f4020 100%);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(212,175,55,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,0.035) 1px,transparent 1px);background-size:55px 55px;pointer-events:none;}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;}
+.orb1{width:700px;height:700px;background:radial-gradient(circle,rgba(34,197,94,0.13),transparent 70%);top:-250px;right:-200px;animation:oFloat 14s ease-in-out infinite;}
+.orb2{width:500px;height:500px;background:radial-gradient(circle,rgba(212,175,55,0.1),transparent 70%);bottom:-150px;left:-150px;animation:oFloat 18s ease-in-out infinite reverse;}
+.orb3{width:300px;height:300px;background:radial-gradient(circle,rgba(26,122,74,0.2),transparent 70%);top:40%;left:30%;animation:oFloat 10s ease-in-out infinite 3s;}
+@keyframes oFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-50px);}}
+.hero-inner{position:relative;z-index:2;max-width:920px;padding:110px 24px 60px;}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(212,175,55,0.35);border-radius:50px;background:rgba(212,175,55,0.07);backdrop-filter:blur(10px);color:var(--gold-l);font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:32px;}
+.hero-pill svg{width:12px;height:12px;fill:var(--gold);}
+.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(54px,9vw,100px);font-weight:700;line-height:0.95;color:#fff;margin-bottom:12px;letter-spacing:-1px;}
+.hero-h1 .gold-text{background:linear-gradient(135deg,var(--gold),var(--gold-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200% auto;animation:shine 4s linear infinite;}
+@keyframes shine{to{background-position:200% center;}}
+.hero-sub{font-size:clamp(16px,2.5vw,20px);color:rgba(255,255,255,0.65);font-weight:300;letter-spacing:.5px;margin-bottom:48px;max-width:600px;margin-left:auto;margin-right:auto;}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:64px;}
+.hero-btn-primary{padding:14px 36px;background:linear-gradient(135deg,var(--gold),var(--gold-l));color:var(--g-deep);border-radius:50px;font-weight:700;font-size:14px;letter-spacing:.5px;text-decoration:none;transition:all .3s;box-shadow:0 8px 30px rgba(212,175,55,0.35);}
+.hero-btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(212,175,55,0.5);}
+.hero-btn-outline{padding:14px 36px;border:1.5px solid rgba(255,255,255,0.25);color:#fff;border-radius:50px;font-weight:500;font-size:14px;text-decoration:none;transition:all .3s;backdrop-filter:blur(10px);}
+.hero-btn-outline:hover{border-color:var(--gold);color:var(--gold-l);transform:translateY(-3px);}
+.hero-stats{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;}
+.hs{display:flex;flex-direction:column;align-items:center;}
+.hs-num{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--gold-l);line-height:1;}
+.hs-label{font-size:11px;font-weight:500;color:rgba(255,255,255,0.45);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px;}
+.hs-div{width:1px;height:50px;background:rgba(255,255,255,0.1);}
+.hero-scroll{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,0.35);font-size:10px;letter-spacing:2px;text-transform:uppercase;animation:scrollBob 2s ease-in-out infinite;}
+.hero-scroll svg{width:20px;height:20px;stroke:rgba(255,255,255,0.3);}
+@keyframes scrollBob{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(6px);}}
+
+/* ── SECTION COMMONS ── */
+.section-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--g-mid);margin-bottom:14px;}
+.section-tag::before{content:'';width:24px;height:1.5px;background:linear-gradient(90deg,var(--g-mid),var(--gold));border-radius:2px;}
+.section-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,56px);font-weight:700;color:var(--td);line-height:1.1;margin-bottom:16px;}
+.gold-span{color:var(--gold);}
+.section-lead{font-size:17px;color:var(--tm);line-height:1.75;max-width:620px;}
+.divider-line{width:60px;height:3px;background:linear-gradient(90deg,var(--g-mid),var(--gold));border-radius:3px;margin-top:16px;}
+
+/* ── ABOUT ── */
+.about{padding:120px 5%;background:var(--white);}
+.about-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.promise-list{margin-top:36px;display:flex;flex-direction:column;gap:16px;}
+.pl-item{display:flex;align-items:flex-start;gap:16px;padding:18px 20px;background:var(--off);border-radius:14px;border:1px solid rgba(212,175,55,0.12);transition:all .3s;}
+.pl-item:hover{border-color:rgba(212,175,55,0.35);background:var(--gold-p);transform:translateX(6px);}
+.pl-icon{width:36px;height:36px;min-width:36px;border-radius:10px;background:linear-gradient(135deg,var(--g-mid),var(--g-dark));display:flex;align-items:center;justify-content:center;}
+.pl-icon svg{width:18px;height:18px;stroke:#fff;fill:none;}
+.pl-text h4{font-size:14px;font-weight:600;color:var(--td);margin-bottom:3px;}
+.pl-text p{font-size:13px;color:var(--tm);line-height:1.5;}
+.about-right{display:flex;flex-direction:column;gap:24px;}
+.about-card{background:linear-gradient(145deg,rgba(255,255,255,0.9),rgba(245,253,247,0.95));border:1px solid rgba(212,175,55,0.18);border-radius:20px;padding:30px;box-shadow:0 20px 50px rgba(10,46,26,0.08);backdrop-filter:blur(10px);transition:all .35s;}
+.about-card:hover{transform:translateY(-6px);box-shadow:0 30px 70px rgba(10,46,26,0.12);}
+.about-card-header{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
+.about-card-icon{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--g-mid),var(--g-dark));display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.about-card-icon svg{width:24px;height:24px;stroke:#fff;fill:none;}
+.about-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--td);}
+.about-card p{font-size:14.5px;color:var(--tm);line-height:1.7;}
+.about-card.highlight{background:linear-gradient(145deg,var(--g-deep),var(--g-dark));border-color:rgba(212,175,55,0.3);}
+.about-card.highlight h3,.about-card.highlight p{color:rgba(255,255,255,0.9);}
+.about-card.highlight .about-card-icon{background:linear-gradient(135deg,var(--gold),var(--gold-l));}
+.about-card.highlight .about-card-icon svg{stroke:var(--g-deep);}
+
+/* ── VISION ── */
+.vision{padding:120px 5%;background:var(--off);}
+.vision-inner{max-width:1300px;margin:0 auto;}
+.vision-top{display:grid;grid-template-columns:1.1fr 1.8fr;gap:70px;align-items:start;margin-bottom:80px;}
+.vision-left{position:sticky;top:90px;}
+.vision-stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;}
+.vs-card{background:var(--white);border:1px solid rgba(212,175,55,0.15);border-radius:16px;padding:20px;text-align:center;transition:all .3s;}
+.vs-card:hover{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 15px 40px rgba(212,175,55,0.15);}
+.vs-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;background:linear-gradient(135deg,var(--g-mid),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.vs-label{font-size:12px;color:var(--tm);font-weight:500;margin-top:4px;}
+.vision-boxes{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+.vbox{background:var(--white);border:1px solid rgba(26,122,74,0.12);border-radius:18px;padding:28px;transition:all .35s;position:relative;overflow:hidden;}
+.vbox::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--g-mid),var(--g-bright));opacity:0;transition:opacity .3s;}
+.vbox:hover{transform:translateY(-8px);box-shadow:0 25px 60px rgba(10,46,26,0.1);}
+.vbox:hover::before{opacity:1;}
+.vbox-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;background:linear-gradient(135deg,rgba(26,122,74,0.12),rgba(26,122,74,0.06));}
+.vbox-icon svg{width:22px;height:22px;stroke:var(--g-mid);fill:none;}
+.vbox h3{font-size:17px;font-weight:700;color:var(--td);margin-bottom:10px;}
+.vbox p{font-size:14px;color:var(--tm);line-height:1.65;}
+.vbox ul{list-style:none;margin-top:14px;}
+.vbox ul li{font-size:13px;color:var(--tm);padding:6px 0;border-bottom:1px solid rgba(26,122,74,0.07);display:flex;align-items:center;gap:8px;}
+.vbox ul li::before{content:'';width:6px;height:6px;min-width:6px;border-radius:50%;background:var(--g-mid);}
+.roadmap{margin-top:80px;background:var(--white);border-radius:28px;padding:56px;border:1px solid rgba(212,175,55,0.15);box-shadow:0 20px 60px rgba(10,46,26,0.07);}
+.roadmap h3{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;text-align:center;color:var(--td);margin-bottom:48px;}
+.rm-track{display:flex;gap:0;position:relative;}
+.rm-track::before{content:'';position:absolute;top:22px;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--g-mid),var(--gold),var(--gold-l));border-radius:2px;}
+.rm-step{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;padding:0 16px;}
+.rm-dot{width:44px;height:44px;border-radius:50%;background:var(--white);border:2.5px solid var(--g-mid);display:flex;align-items:center;justify-content:center;z-index:2;position:relative;transition:all .3s;margin-bottom:20px;}
+.rm-dot svg{width:18px;height:18px;stroke:var(--g-mid);fill:none;}
+.rm-step.future .rm-dot{border-color:var(--gold);animation:pulseDot 2s ease-in-out infinite;}
+.rm-step.future .rm-dot svg{stroke:var(--gold);}
+@keyframes pulseDot{0%,100%{box-shadow:0 0 0 0 rgba(212,175,55,0.3);}50%{box-shadow:0 0 0 10px rgba(212,175,55,0);}}
+.rm-year{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--g-mid);margin-bottom:8px;}
+.rm-step.future .rm-year{color:var(--gold);}
+.rm-title{font-size:14px;font-weight:700;color:var(--td);margin-bottom:6px;}
+.rm-desc{font-size:12.5px;color:var(--tm);line-height:1.5;}
+.philosophy{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.phi-card{background:var(--white);border:1px solid rgba(26,122,74,0.12);border-radius:18px;padding:28px;text-align:center;transition:all .35s;position:relative;overflow:hidden;}
+.phi-card:hover{transform:translateY(-8px);box-shadow:0 25px 55px rgba(10,46,26,0.1);border-color:rgba(212,175,55,0.3);}
+.phi-icon{width:52px;height:52px;border-radius:16px;margin:0 auto 16px;background:linear-gradient(135deg,var(--g-mid),var(--g-dark));display:flex;align-items:center;justify-content:center;}
+.phi-icon svg{width:26px;height:26px;stroke:#fff;fill:none;}
+.phi-card h4{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--td);margin-bottom:10px;}
+.phi-card p{font-size:14px;color:var(--tm);line-height:1.65;font-style:italic;}
+
+/* ── VERTICALS HERO ── */
+.verticals-hero{padding:100px 5%;background:linear-gradient(160deg,var(--g-deep),var(--g-dark));text-align:center;position:relative;overflow:hidden;}
+.verticals-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(212,175,55,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,0.04) 1px,transparent 1px);background-size:50px 50px;}
+.verticals-hero-inner{position:relative;z-index:2;max-width:800px;margin:0 auto;}
+.verticals-hero .section-tag{justify-content:center;color:var(--gold-l);}
+.verticals-hero .section-tag::before{background:linear-gradient(90deg,var(--gold),var(--gold-l));}
+.verticals-hero .section-h2{color:#fff;}
+.verticals-hero .section-lead{color:rgba(255,255,255,0.65);margin:0 auto 48px;}
+.vh-stats{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;}
+.vhs{background:rgba(255,255,255,0.06);border:1px solid rgba(212,175,55,0.2);border-radius:16px;padding:20px 30px;text-align:center;backdrop-filter:blur(10px);transition:all .3s;}
+.vhs:hover{background:rgba(212,175,55,0.1);border-color:rgba(212,175,55,0.4);transform:translateY(-4px);}
+.vhs h3{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--gold-l);}
+.vhs span{font-size:12px;color:rgba(255,255,255,0.5);font-weight:500;letter-spacing:1px;}
+
+/* ── VERTICALS CAROUSEL ── */
+.verticals{padding:80px 0 60px;background:var(--off);overflow:hidden;}
+.carousel-wrap{position:relative;width:100%;overflow:hidden;padding:30px 0 50px;cursor:grab;user-select:none;}
+.carousel-wrap:active{cursor:grabbing;}
+.carousel-track{display:flex;gap:28px;width:max-content;transition:transform 0.55s cubic-bezier(.4,0,.2,1);will-change:transform;}
+
+/* ── VCARD — HOVER REVEAL ── */
+.vcard{width:380px;min-height:460px;border-radius:28px;position:relative;flex-shrink:0;cursor:pointer;transition:transform .4s cubic-bezier(.34,1.56,.64,1),box-shadow .4s;}
+.vcard:hover{transform:translateY(-12px) scale(1.03);box-shadow:0 30px 70px rgba(10,46,26,0.16);}
+.vcard.center-card{transform:translateY(-6px) scale(1.02);z-index:5;}
+
+/* Front face — IMAGE visible by default */
+.vcard-front{position:absolute;inset:0;border-radius:28px;overflow:hidden;transition:opacity .35s ease, transform .35s ease;}
+.vcard-front-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s ease;}
+.vcard:hover .vcard-front-bg{transform:scale(1.06);}
+.vcard-front-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,26,14,0.82) 30%,rgba(7,26,14,0.4) 70%,rgba(7,26,14,0.1) 100%);}
+.vcard-front-content{position:absolute;inset:0;padding:30px;display:flex;flex-direction:column;justify-content:flex-end;z-index:2;}
+.vcard-front-content::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--g-mid),var(--g-bright),var(--gold));border-radius:28px 28px 0 0;}
+.vcard-num{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:700;line-height:1;letter-spacing:-3px;position:absolute;top:20px;left:28px;color:rgba(255,255,255,0.15);-webkit-text-fill-color:rgba(255,255,255,0.15);}
+.vcard-badge{display:inline-block;padding:5px 14px;background:linear-gradient(135deg,var(--g-mid),var(--g-dark));color:#fff;border-radius:50px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;align-self:flex-start;box-shadow:0 4px 12px rgba(0,0,0,0.3);}
+.vcard-title{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:5px;text-shadow:0 2px 8px rgba(0,0,0,0.4);}
+.vcard-sub{font-size:12px;color:rgba(255,255,255,0.65);font-weight:500;font-style:italic;margin-bottom:12px;letter-spacing:.3px;}
+.vcard-chips{display:flex;flex-wrap:wrap;gap:7px;}
+.vcard-chips span{padding:5px 12px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);border-radius:50px;font-size:11px;font-weight:600;color:rgba(255,255,255,0.85);transition:all .2s;}
+.vcard-hint{display:flex;align-items:center;gap:5px;margin-top:10px;font-size:11px;color:var(--gold-l);font-weight:600;letter-spacing:1px;opacity:.8;transition:opacity .3s;}
+.vcard:hover .vcard-hint{opacity:0;}
+.vcard-hint svg{width:12px;height:12px;stroke:var(--gold-l);fill:none;}
+
+/* Reveal face — shown on hover, same image + more text */
+.vcard-reveal{position:absolute;inset:0;border-radius:28px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;opacity:0;transform:translateY(6px);transition:opacity .35s ease,transform .35s ease;pointer-events:none;border:1.5px solid rgba(212,175,55,0.35);}
+.vcard-reveal-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s ease;}
+.vcard:hover .vcard-reveal-bg{transform:scale(1.06);}
+.vcard-reveal-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,26,14,0.97) 45%,rgba(7,26,14,0.78) 70%,rgba(7,26,14,0.3) 100%);}
+.vcard-reveal-content{position:relative;z-index:2;padding:30px;}
+.vcard-reveal::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-l),var(--gold));border-radius:28px 28px 0 0;z-index:3;}
+/* Hover trigger */
+.vcard:hover .vcard-front{opacity:0;transform:translateY(-6px);}
+.vcard:hover .vcard-reveal{opacity:1;transform:translateY(0);pointer-events:auto;}
+.vcard-reveal .vcard-badge{background:linear-gradient(135deg,var(--gold),var(--gold-l));color:var(--g-deep);box-shadow:0 4px 14px rgba(212,175,55,0.4);align-self:flex-start;margin-bottom:10px;}
+.vcard-reveal h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.2;}
+.vcard-reveal p{font-size:13px;color:rgba(255,255,255,0.85);line-height:1.72;margin-bottom:14px;}
+.vcard-reveal .vcard-chips span{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.18);color:rgba(255,255,255,0.75);}
+
+/* Dots */
+.carousel-dots{display:flex;justify-content:center;gap:10px;padding-top:4px;}
+.cdot{width:8px;height:8px;border-radius:50%;background:rgba(26,122,74,0.18);cursor:pointer;transition:all .3s;}
+.cdot.active{width:28px;border-radius:4px;background:linear-gradient(90deg,var(--g-mid),var(--gold));}
+
+/* Carousel manual controls */
+.carousel-controls{display:flex;justify-content:flex-end;gap:10px;padding:0 5% 0;margin-bottom:8px;max-width:100%;}
+.car-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(26,122,74,0.25);background:var(--white);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s;box-shadow:0 2px 10px rgba(10,46,26,0.07);}
+.car-btn svg{width:18px;height:18px;stroke:var(--g-mid);transition:stroke .2s;}
+.car-btn:hover{background:linear-gradient(135deg,var(--g-mid),var(--g-dark));border-color:var(--g-mid);box-shadow:0 6px 20px rgba(26,122,74,0.25);transform:scale(1.08);}
+.car-btn:hover svg{stroke:#fff;}
+.car-btn:active{transform:scale(0.95);}
+
+/* ── PROJECTS ── */
+.projects{padding:100px 5%;background:var(--white);}
+.projects-inner{max-width:1200px;margin:0 auto;}
+.projects-header{margin-bottom:50px;}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.proj-card{background:var(--off);border:var(--br);border-radius:20px;padding:32px;transition:all .35s;position:relative;overflow:hidden;}
+.proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--g-mid),var(--gold));transform:scaleX(0);transition:transform .3s;}
+.proj-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(10,46,26,0.1);}
+.proj-card:hover::before{transform:scaleX(1);}
+.proj-icon-wrap{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--g-mid),var(--g-dark));display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+.proj-icon-wrap svg{width:24px;height:24px;stroke:#fff;fill:none;}
+.proj-tag{display:inline-block;padding:4px 12px;background:rgba(26,122,74,0.1);color:var(--g-mid);border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;}
+.proj-card h3{font-size:18px;font-weight:700;color:var(--td);margin-bottom:8px;line-height:1.3;}
+.proj-card p{font-size:13.5px;color:var(--tm);}
+
+/* ── FOUNDERS ── */
+.founders{padding:100px 5%;background:var(--off);}
+.founders-inner{max-width:1100px;margin:0 auto;}
+.founders-header{text-align:center;margin-bottom:56px;}
+.founders-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;}
+.founder-wrapper{position:relative;}
+.founder-profile{background:var(--white);border:var(--br);border-radius:22px;padding:36px;display:flex;align-items:flex-start;gap:24px;cursor:pointer;transition:all .35s;}
+.founder-profile:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(10,46,26,0.1);border-color:rgba(212,175,55,0.3);}
+.founder-img{width:80px;height:80px;min-width:80px;border-radius:18px;overflow:hidden;border:2.5px solid rgba(212,175,55,0.3);}
+.founder-img img{width:100%;height:100%;object-fit:cover;}
+.founder-info h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--td);margin-bottom:6px;}
+.role-badge{display:inline-block;padding:4px 12px;background:linear-gradient(135deg,var(--g-mid),var(--g-dark));color:#fff;border-radius:20px;font-size:11px;font-weight:600;margin-bottom:10px;}
+.founder-info p{font-size:13.5px;color:var(--tm);line-height:1.5;}
+.hover-indicator{display:flex;align-items:center;gap:6px;margin-top:12px;font-size:12px;color:var(--gold);font-weight:600;}
+.hover-indicator svg{width:14px;height:14px;stroke:var(--gold);fill:none;}
+.founder-modal{position:fixed;inset:0;z-index:9999;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s,visibility .3s;}
+.founder-modal.active{opacity:1;visibility:visible;pointer-events:auto;}
+.modal-overlay{position:absolute;inset:0;background:rgba(7,26,14,0.7);backdrop-filter:blur(8px);}
+.modal-content{position:relative;background:var(--white);width:90%;max-width:750px;max-height:88vh;margin:5vh auto;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 40px 100px rgba(0,0,0,0.25);animation:mSlide .35s cubic-bezier(.4,0,.2,1);}
+@keyframes mSlide{from{opacity:0;transform:translateY(30px) scale(.97);}to{opacity:1;transform:none;}}
+.modal-top{padding:32px 36px;background:linear-gradient(135deg,#f0fdf4,#fff);border-bottom:var(--br);display:flex;gap:24px;align-items:center;}
+.modal-top-img{width:100px;height:100px;border-radius:20px;overflow:hidden;border:2.5px solid rgba(212,175,55,0.3);flex-shrink:0;}
+.modal-top-img img{width:100%;height:100%;object-fit:cover;}
+.modal-top-info h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--td);margin-bottom:6px;}
+.modal-role-badge{display:inline-block;padding:5px 14px;background:var(--g-mid);color:#fff;border-radius:20px;font-size:12px;font-weight:600;margin-bottom:10px;}
+.modal-tags{display:flex;flex-wrap:wrap;gap:8px;}
+.modal-tags span{padding:4px 12px;background:rgba(26,122,74,0.09);color:var(--g-mid);border-radius:20px;font-size:12px;font-weight:500;}
+.modal-body-content{padding:28px 36px;overflow-y:auto;flex:1;}
+.modal-sec{margin-bottom:24px;}
+.modal-sec h4{font-size:15px;font-weight:700;color:var(--g-mid);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.modal-sec h4 svg{width:16px;height:16px;stroke:var(--gold);fill:none;}
+.modal-sec p{font-size:14.5px;color:var(--tm);line-height:1.7;}
+.modal-sec ul{list-style:none;}
+.modal-sec ul li{font-size:14px;color:var(--tm);padding:8px 0;border-bottom:var(--br);display:flex;align-items:flex-start;gap:10px;}
+.modal-sec ul li::before{content:'✓';color:var(--g-mid);font-weight:700;margin-top:1px;}
+.modal-footer-bar{padding:20px 36px;border-top:var(--br);}
+.linkedin-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:linear-gradient(135deg,#0a66c2,#0a4f99);color:#fff;border-radius:50px;font-size:13px;font-weight:600;text-decoration:none;transition:all .3s;}
+.linkedin-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(10,102,194,0.35);}
+.linkedin-btn svg{width:16px;height:16px;fill:#fff;}
+
+/* ── DIGITAL PRESENCE — Polished Horizontal Cards ── */
+.dp-section{padding:96px 5%;background:var(--white);}
+.dp-inner{max-width:1260px;margin:0 auto;}
+.dp-header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:48px;flex-wrap:wrap;}
+.dp-channel-btn{display:inline-flex;align-items:center;gap:9px;padding:11px 24px;background:linear-gradient(135deg,#ff0000,#cc0000);color:#fff;border-radius:50px;font-size:13px;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:0 6px 20px rgba(255,0,0,0.25);white-space:nowrap;flex-shrink:0;}
+.dp-channel-btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,0,0,0.4);}
+.dp-channel-btn svg{width:18px;height:18px;}
+
+/* Scroll strip */
+.dp-scroll-outer{position:relative;overflow:hidden;margin:0 -5%;padding:8px 0 32px;}
+.dp-scroll-outer::before,.dp-scroll-outer::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none;}
+.dp-scroll-outer::before{left:0;background:linear-gradient(to right,var(--white),transparent);}
+.dp-scroll-outer::after{right:0;background:linear-gradient(to left,var(--white),transparent);}
+.dp-scroll-track{display:flex;gap:22px;padding:8px 5%;animation:dpScroll 32s linear infinite;width:max-content;}
+.dp-scroll-track:hover{animation-play-state:paused;}
+@keyframes dpScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+/* Individual card */
+.dp-card{width:260px;flex-shrink:0;border-radius:20px;overflow:hidden;background:var(--white);border:1px solid rgba(26,122,74,0.1);cursor:pointer;transition:transform .35s,box-shadow .35s;position:relative;box-shadow:0 2px 14px rgba(10,46,26,0.06);}
+.dp-card:hover{transform:translateY(-10px);box-shadow:0 24px 56px rgba(10,46,26,0.14);border-color:rgba(212,175,55,0.35);}
+
+/* Thumbnail area */
+.dp-card-thumb{position:relative;height:200px;overflow:hidden;}
+.dp-card-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s;}
+.dp-card:hover .dp-card-thumb img{transform:scale(1.07);}
+.dp-card-thumb-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,26,14,0.55) 0%,transparent 60%);transition:background .3s;}
+.dp-card:hover .dp-card-thumb-overlay{background:linear-gradient(to top,rgba(7,26,14,0.72) 0%,rgba(7,26,14,0.15) 70%);}
+
+/* Play button */
+.dp-card-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.75);opacity:0;width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,0.15);backdrop-filter:blur(12px);border:2px solid rgba(255,255,255,0.55);display:flex;align-items:center;justify-content:center;transition:all .3s;padding-left:4px;}
+.dp-card:hover .dp-card-play{opacity:1;transform:translate(-50%,-50%) scale(1);}
+.dp-card-play svg{width:22px;height:22px;}
+
+/* Category pill on thumb */
+.dp-card-cat{position:absolute;top:12px;left:12px;padding:4px 12px;background:linear-gradient(135deg,var(--g-mid),var(--g-dark));color:#fff;border-radius:50px;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;box-shadow:0 2px 8px rgba(0,0,0,0.2);}
+
+/* Views badge */
+.dp-card-views{position:absolute;bottom:12px;right:12px;padding:3px 9px;background:rgba(7,26,14,0.7);backdrop-filter:blur(6px);color:var(--gold-l);border-radius:20px;font-size:10px;font-weight:700;}
+
+/* Card body */
+.dp-card-body{padding:18px 20px 20px;}
+.dp-card-body h4{font-size:14.5px;font-weight:700;color:var(--td);line-height:1.35;margin-bottom:7px;}
+.dp-card-body p{font-size:12.5px;color:var(--tm);line-height:1.55;margin-bottom:12px;}
+.dp-card-foot{display:flex;align-items:center;justify-content:space-between;}
+.dp-card-duration{font-size:11px;font-weight:600;color:var(--tl);background:rgba(26,122,74,0.07);padding:3px 10px;border-radius:20px;}
+.dp-card-watch{font-size:12px;font-weight:700;color:var(--g-mid);display:flex;align-items:center;gap:4px;transition:gap .2s,color .2s;}
+.dp-card:hover .dp-card-watch{gap:7px;color:var(--gold);}
+.dp-card-watch svg{width:12px;height:12px;stroke:currentColor;fill:none;transition:transform .2s;}
+
+@media(max-width:600px){.dp-card{width:220px;}.dp-card-thumb{height:165px;}}
+
+/* ── EVENTS (matched to site palette) ── */
+.events{padding:0;background:var(--white);}
+.ev-hero{position:relative;height:400px;overflow:hidden;}
+.ev-hero img{width:100%;height:100%;object-fit:cover;display:block;}
+.ev-hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(7,26,14,0.92) 50%,rgba(7,26,14,0.55));}
+.ev-hero-text{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 5%;}
+.ev-hero-text .section-tag{color:var(--g-soft);}
+.ev-hero-text .section-tag::before{background:linear-gradient(90deg,var(--g-bright),var(--g-soft));}
+.ev-hero-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,6vw,76px);color:#fff;line-height:1.0;margin-bottom:14px;letter-spacing:-1.5px;}
+.ev-hero-text p{font-size:16px;color:rgba(255,255,255,0.65);max-width:560px;line-height:1.7;}
+.ev-body{padding:80px 5%;background:var(--white);}
+.ev-body-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr;gap:64px;align-items:start;}
+.ev-list-title{font-family:'Cormorant Garamond',serif;font-size:34px;color:var(--td);margin-bottom:32px;display:flex;align-items:center;gap:12px;letter-spacing:-0.5px;}
+.ev-list-title span{width:4px;height:30px;background:var(--gold);border-radius:2px;display:inline-block;}
+.ev-item{display:flex;gap:20px;padding-bottom:28px;margin-bottom:28px;border-bottom:var(--br);}
+.ev-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.ev-item-ic{width:44px;height:44px;min-width:44px;border-radius:50%;background:linear-gradient(135deg,var(--g-mid),var(--g-dark));display:flex;align-items:center;justify-content:center;}
+.ev-item-ic svg{width:18px;height:18px;stroke:#fff;fill:none;}
+.ev-item-date{font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+.ev-item h4{font-size:16px;font-weight:700;color:var(--td);margin-bottom:8px;}
+.ev-item p{font-size:13.5px;color:var(--tm);line-height:1.65;margin-bottom:12px;}
+.ev-item-link{font-size:13px;font-weight:700;color:var(--g-mid);display:inline-flex;align-items:center;gap:6px;transition:gap .2s;text-decoration:none;}
+.ev-item-link svg{width:13px;height:13px;stroke:var(--g-mid);fill:none;transition:transform .2s;}
+.ev-item-link:hover{gap:10px;color:var(--gold);}
+.ev-item-link:hover svg{transform:translateX(3px);stroke:var(--gold);}
+
+/* Collage (from final-one) replacing Key Highlights */
+.ev-collage-box{background:linear-gradient(145deg,#f0fdf4,#ecfdf5);border:1px solid rgba(212,175,55,0.18);border-radius:20px;padding:22px;box-shadow:0 20px 60px rgba(10,46,26,0.08);overflow:hidden;}
+.ev-collage-box h4{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--td);margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+.ev-collage-box h4 svg{width:16px;height:16px;stroke:var(--gold);fill:none;}
+.collage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.cg-tile{border-radius:12px;overflow:hidden;aspect-ratio:1;background:linear-gradient(135deg,#d4f5d4,#d4e8d4);box-shadow:0 4px 14px rgba(10,46,26,0.1);}
+.cg-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
+.cg-tile:hover img{transform:scale(1.08);}
+.cg-tile.wide{grid-column:span 2;aspect-ratio:2/1;}
+
+/* Gallery strip */
+.ev-gallery{padding:0 5% 80px;background:var(--white);}
+.ev-gallery-inner{max-width:1200px;margin:0 auto;}
+.ev-gallery-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;}
+.ev-gallery-header-left h3{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--td);letter-spacing:-0.3px;}
+.ev-gallery-header-left p{font-size:13.5px;color:var(--tl);margin-top:4px;}
+.ev-gallery-header-right{display:flex;gap:10px;}
+.gal-nav-btn{width:38px;height:38px;border-radius:50%;border:var(--br);background:var(--white);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s;}
+.gal-nav-btn:hover{background:var(--g-mid);border-color:var(--g-mid);}
+.gal-nav-btn:hover svg{stroke:#fff;}
+.gal-nav-btn svg{width:15px;height:15px;stroke:var(--td);fill:none;}
+.gallery-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.gal-tile-main{border-radius:14px;overflow:hidden;aspect-ratio:1;position:relative;}
+.gal-tile-main img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;}
+.gal-tile-main:hover img{transform:scale(1.07);}
+.gal-tile-main::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(7,26,14,0.5),transparent);opacity:0;transition:opacity .3s;}
+.gal-tile-main:hover::after{opacity:1;}
+
+/* ── CONTACT FORM ── */
+.contact{padding:100px 5%;background:linear-gradient(160deg,var(--g-deep),var(--g-dark));position:relative;overflow:hidden;}
+.contact::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(212,175,55,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,0.04) 1px,transparent 1px);background-size:50px 50px;}
+.contact-inner{max-width:1200px;margin:0 auto;position:relative;z-index:2;}
+.contact-top{display:grid;grid-template-columns:1fr 1.6fr;gap:72px;align-items:start;}
+.contact-heading .section-tag{color:var(--gold-l);}
+.contact-heading .section-tag::before{background:linear-gradient(90deg,var(--gold),var(--gold-l));}
+.contact-heading .section-h2{color:#fff;}
+.contact-heading .section-lead{color:rgba(255,255,255,0.6);margin-bottom:32px;}
+.contact-info-links{display:flex;flex-direction:column;gap:12px;}
+.cl{display:flex;align-items:center;gap:14px;padding:14px 18px;background:rgba(255,255,255,0.05);border:1px solid rgba(212,175,55,0.18);border-radius:14px;text-decoration:none;transition:all .35s;backdrop-filter:blur(10px);}
+.cl:hover{background:rgba(212,175,55,0.1);border-color:rgba(212,175,55,0.4);transform:translateX(6px);}
+.cl-icon{width:36px;height:36px;min-width:36px;border-radius:9px;background:linear-gradient(135deg,var(--g-mid),var(--g-dark));display:flex;align-items:center;justify-content:center;}
+.cl-icon svg{width:16px;height:16px;stroke:#fff;fill:none;}
+.cl-text{display:flex;flex-direction:column;}
+.cl-label{font-size:10px;color:rgba(255,255,255,0.4);font-weight:500;letter-spacing:1px;text-transform:uppercase;}
+.cl-value{font-size:13.5px;color:rgba(255,255,255,0.9);font-weight:600;}
+
+/* Contact form */
+.contact-form-wrap{background:rgba(255,255,255,0.04);border:1px solid rgba(212,175,55,0.15);border-radius:24px;padding:40px;backdrop-filter:blur(10px);}
+.contact-form-wrap h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:6px;}
+.contact-form-wrap p{font-size:13.5px;color:rgba(255,255,255,0.45);margin-bottom:28px;}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.cf-field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+.cf-field label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);}
+.cf-field input,.cf-field select,.cf-field textarea{background:rgba(255,255,255,0.06);border:1px solid rgba(212,175,55,0.18);border-radius:12px;padding:13px 16px;font-size:14px;color:#fff;font-family:'Outfit',sans-serif;transition:all .3s;outline:none;width:100%;}
+.cf-field input::placeholder,.cf-field textarea::placeholder{color:rgba(255,255,255,0.25);}
+.cf-field select{color:rgba(255,255,255,0.7);appearance:none;cursor:pointer;}
+.cf-field select option{background:#0f4a28;color:#fff;}
+.cf-field input:focus,.cf-field select:focus,.cf-field textarea:focus{border-color:rgba(212,175,55,0.5);background:rgba(255,255,255,0.09);box-shadow:0 0 0 3px rgba(212,175,55,0.08);}
+.cf-field textarea{resize:vertical;min-height:110px;}
+.cf-submit{width:100%;padding:15px;background:linear-gradient(135deg,var(--gold),var(--gold-l));color:var(--g-deep);border:none;border-radius:12px;font-size:15px;font-weight:700;font-family:'Outfit',sans-serif;cursor:pointer;transition:all .3s;letter-spacing:.3px;}
+.cf-submit:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(212,175,55,0.4);}
+.cf-success{display:none;text-align:center;padding:20px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.25);border-radius:12px;color:var(--g-soft);font-weight:600;font-size:14px;margin-top:12px;}
+.cf-success.show{display:block;}
+
+/* ── FOOTER — modern ── */
+.footer{background:var(--g-deep);padding:0;}
+
+.footer-main{padding:64px 5% 40px;border-top:1px solid rgba(212,175,55,0.12);}
+.footer-main-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;}
+
+.footer-brand-col{}
+.footer-logo-wrap{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.footer-logo-img{height:56px;width:auto;object-fit:contain;}
+.footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:#fff;line-height:1.2;}
+.footer-brand-tag{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
+.footer-brand-desc{font-size:13.5px;color:rgba(255,255,255,0.45);line-height:1.75;margin-bottom:24px;max-width:280px;}
+.footer-socials{display:flex;gap:10px;}
+.fsoc{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;transition:all .3s;text-decoration:none;}
+.fsoc:hover{background:var(--gold);border-color:var(--gold);transform:translateY(-3px);}
+.fsoc svg{width:16px;height:16px;stroke:#fff;fill:none;}
+.fsoc:hover svg{stroke:var(--g-deep);}
+.fsoc.linkedin:hover{background:#0a66c2;border-color:#0a66c2;}
+.fsoc.linkedin:hover svg{stroke:#fff;}
+
+.footer-col h5{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col ul li a{font-size:13.5px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:6px;}
+.footer-col ul li a::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--g-mid);transition:background .2s;flex-shrink:0;}
+.footer-col ul li a:hover{color:var(--gold-l);}
+.footer-col ul li a:hover::before{background:var(--gold);}
+
+.footer-contact-col h5{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.footer-contact-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;}
+.footer-contact-item svg{width:15px;height:15px;stroke:var(--g-mid);fill:none;flex-shrink:0;margin-top:2px;}
+.footer-contact-item span{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.55;}
+.footer-contact-item a{font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color .2s;}
+.footer-contact-item a:hover{color:var(--gold-l);}
+
+.footer-bottom{padding:20px 5%;border-top:1px solid rgba(255,255,255,0.06);}
+.footer-bottom-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.footer-bottom-left p{font-size:12.5px;color:rgba(255,255,255,0.3);}
+.footer-bottom-left p span{color:rgba(255,255,255,0.5);}
+.footer-bottom-right{display:flex;gap:20px;}
+.footer-bottom-right a{font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none;transition:color .2s;}
+.footer-bottom-right a:hover{color:var(--gold-l);}
+
+/* ── REVEAL (scroll up) ── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ── SLIDE FROM RIGHT (page load) ── */
+.slide-right{opacity:0;transform:translateX(80px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);}
+.slide-right.visible{opacity:1;transform:translateX(0);}
+/* Stagger each child card */
+.slide-right:nth-child(1){transition-delay:.1s;}
+.slide-right:nth-child(2){transition-delay:.22s;}
+.slide-right:nth-child(3){transition-delay:.34s;}
+.slide-right:nth-child(4){transition-delay:.46s;}
+.slide-right:nth-child(5){transition-delay:.58s;}
+.slide-right:nth-child(6){transition-delay:.70s;}
+
+/* ── RESPONSIVE ── */
+/* ══════════════════════════════════════
+   TABLET  ≤ 900px
+══════════════════════════════════════ */
+@media(max-width:900px){
+
+  /* Nav */
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+
+  /* Hero */
+  .hero-inner{padding:100px 20px 52px;}
+  .hero-stats{gap:24px;}
+
+  /* About */
+  .about{padding:72px 5%;}
+  .about-inner{grid-template-columns:1fr;gap:40px;}
+
+  /* Vision */
+  .vision{padding:72px 5%;}
+  .vision-top{grid-template-columns:1fr;gap:40px;}
+  .vision-left{position:static;}
+  .vision-boxes{grid-template-columns:1fr 1fr;}
+  .roadmap{padding:40px 32px;}
+  .roadmap .rm-track{flex-direction:column;gap:0;}
+  .roadmap .rm-track::before{display:none;}
+  .rm-step{flex-direction:row;text-align:left;align-items:flex-start;gap:16px;padding:0 0 24px 0;}
+  .rm-dot{margin-bottom:0;min-width:44px;}
+  .philosophy{grid-template-columns:1fr 1fr;}
+
+  /* Verticals */
+  .carousel-controls{padding:0 4%;}
+  .vcard{width:300px;min-height:400px;}
+
+  /* Projects */
+  .proj-grid{grid-template-columns:1fr 1fr;}
+
+  /* Founders */
+  .founders-grid{grid-template-columns:1fr;}
+
+  /* Events */
+  .ev-hero{height:340px;}
+  .ev-body{padding:56px 5%;}
+  .ev-body-inner{grid-template-columns:1fr;gap:40px;}
+  .collage-grid{grid-template-columns:repeat(3,1fr);}
+  .cg-tile.wide{grid-column:span 2;}
+  .gallery-strip{grid-template-columns:repeat(2,1fr);}
+
+  /* Contact */
+  .contact{padding:72px 5%;}
+  .contact-top{grid-template-columns:1fr;gap:36px;}
+  .cf-row{grid-template-columns:1fr 1fr;}
+
+  /* Footer */
+  .footer-main{padding:48px 5% 32px;}
+  .footer-main-inner{grid-template-columns:1fr 1fr;gap:36px;}
+  .footer-bottom-inner{flex-direction:column;text-align:center;}
+  .footer-bottom-right{justify-content:center;}
+}
+
+/* ══════════════════════════════════════
+   MOBILE  ≤ 600px
+══════════════════════════════════════ */
+@media(max-width:600px){
+
+  /* Global */
+  .section-h2{font-size:28px;}
+  .section-lead{font-size:15px;}
+
+  /* Hero */
+  .hero-inner{padding:90px 18px 48px;}
+  .hero-h1{font-size:42px;letter-spacing:-0.5px;}
+  .hero-sub{font-size:14.5px;}
+  .hero-btns{flex-direction:column;align-items:stretch;}
+  .hero-stats{gap:14px;flex-wrap:wrap;justify-content:center;}
+  .hs-div{display:none;}
+  .hs-num{font-size:30px;}
+  .hs-label{font-size:10px;}
+
+  /* About */
+  .about{padding:56px 5%;}
+  .promise-list{gap:12px;}
+  .pl-item{padding:14px 16px;}
+  .about-card{padding:22px 20px;}
+
+  /* Vision */
+  .vision{padding:56px 5%;}
+  .vision-stats-row{grid-template-columns:repeat(3,1fr);gap:10px;}
+  .vs-card{padding:14px 10px;}
+  .vs-num{font-size:26px;}
+  .vision-boxes{grid-template-columns:1fr;}
+  .vbox{padding:22px 18px;}
+  .roadmap{padding:28px 18px;}
+  .roadmap h3{font-size:26px;margin-bottom:32px;}
+  .rm-step{gap:12px;padding:0 0 20px 0;}
+  .rm-dot{width:36px;height:36px;min-width:36px;}
+  .rm-year{font-size:18px;}
+  .philosophy{grid-template-columns:1fr;}
+  .phi-card{padding:22px 18px;}
+
+  /* Verticals carousel — native horizontal scroll on mobile */
+  .verticals{overflow:visible;}
+  .carousel-wrap{overflow-x:auto;overflow-y:visible;-webkit-overflow-scrolling:touch;padding:16px 0 28px;cursor:default;}
+  .carousel-track{transition:none !important;transform:none !important;padding:0 5%;gap:14px;}
+  .carousel-controls{display:none;}
+  .carousel-dots{display:none;}
+  .vcard{width:240px;min-height:360px;flex-shrink:0;}
+  .vcard-front-content{padding:22px 20px;}
+  .vcard-reveal-content{padding:22px 20px;}
+  .vcard-num{font-size:52px;}
+  .vcard-title{font-size:22px;}
+  .vcard-reveal h3{font-size:20px;}
+  .vcard-reveal p{font-size:12.5px;}
+  .vcard-chips span{font-size:10px;padding:4px 10px;}
+
+  /* Digital Presence — native horizontal scroll on mobile */
+  .dp-scroll-outer{overflow-x:auto;overflow-y:visible;-webkit-overflow-scrolling:touch;margin:0 -5%;padding:8px 0 20px;}
+  .dp-scroll-outer::before,.dp-scroll-outer::after{display:none;}
+  .dp-scroll-track{animation:none !important;transform:none !important;width:max-content;padding:8px 5%;gap:14px;}
+  .dp-card{width:200px;flex-shrink:0;}
+  .dp-card-thumb{height:150px;}
+  .dp-card-body{padding:14px 14px 16px;}
+  .dp-card-body h4{font-size:13px;}
+  .dp-card-body p{font-size:11.5px;}
+
+  /* Projects */
+  .projects{padding:56px 5%;}
+  .proj-grid{grid-template-columns:1fr;}
+  .proj-card{padding:24px 20px;}
+
+  /* Founders */
+  .founders{padding:56px 5%;}
+  .founder-profile{flex-direction:column;align-items:center;text-align:center;padding:28px 20px;}
+  .founder-img{width:90px;height:90px;}
+  .hover-indicator{justify-content:center;}
+  .modal-top{flex-direction:column;text-align:center;padding:24px 20px;}
+  .modal-body-content{padding:20px 18px;}
+  .modal-footer-bar{padding:16px 18px;}
+
+  /* Digital Presence — handled above in carousel block */
+  .dp-section{padding:56px 5%;}
+  .dp-header{flex-direction:column;align-items:flex-start;gap:16px;margin-bottom:32px;}
+  .dp-channel-btn{align-self:flex-start;}
+
+  /* Events */
+  .events{padding:0;}
+  .ev-hero{height:280px;}
+  .ev-hero-text h2{font-size:36px;}
+  .ev-hero-text p{font-size:14px;}
+  .ev-body{padding:40px 5%;}
+  .ev-body-inner{gap:32px;}
+  .ev-item{flex-direction:column;gap:12px;}
+  .ev-item-ic{width:36px;height:36px;min-width:36px;}
+  .ev-item h4{font-size:15px;}
+  .ev-item p{font-size:13px;}
+
+  /* Collage — 2 col on mobile */
+  .collage-grid{grid-template-columns:1fr 1fr;gap:8px;}
+  .cg-tile.wide{grid-column:span 2;aspect-ratio:16/7;}
+  .ev-collage-box{padding:16px;}
+
+  /* Gallery strip */
+  .ev-gallery{padding:0 5% 48px;}
+  .gallery-strip{grid-template-columns:1fr 1fr;gap:10px;}
+  .gal-tile-main{border-radius:10px;}
+
+  /* Contact */
+  .contact{padding:56px 5%;}
+  .contact-top{gap:28px;}
+  .cf-row{grid-template-columns:1fr;}
+  .contact-form-wrap{padding:28px 20px;}
+  .contact-form-wrap h3{font-size:22px;}
+
+  /* Footer */
+  .footer-main{padding:40px 5% 28px;}
+  .footer-main-inner{grid-template-columns:1fr;gap:28px;}
+  .footer-bottom-inner{flex-direction:column;text-align:center;gap:10px;}
+  .footer-bottom-right{justify-content:center;flex-wrap:wrap;gap:14px;}
+  .footer-logo-img{height:44px;}
+  .footer-brand-name{font-size:16px;}
+}
+
+/* ══════════════════════════════════════
+   SMALL MOBILE  ≤ 400px
+══════════════════════════════════════ */
+@media(max-width:400px){
+  .hero-h1{font-size:34px;}
+  .section-h2{font-size:24px;}
+  .vcard{width:210px;min-height:320px;}
+  .dp-card{width:175px;}
+  .dp-card-thumb{height:135px;}
+  .vision-stats-row{grid-template-columns:1fr 1fr;}
+  .collage-grid{grid-template-columns:1fr 1fr;}
+  .cg-tile.wide{grid-column:span 2;}
+  .hero-stats{gap:10px;}
+  .hs-num{font-size:26px;}
+  .verticals-hero{padding:48px 5%;}
+  .vh-stats{gap:10px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav" id="mainNav">
+  <a href="#" class="nav-logo">
+    <div class="logo-area"><img src="VVG Transpent BG.png" alt="Vaibhav Veda Green Ventures" onerror="this.style.display='none'"></div>
+  </a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#vision">Vision</a>
+    <a href="#verticals">Verticals</a>
+    <a href="#founders">Founders</a>
+    <a href="#events">Events</a>
+    <a href="#contact" class="btn-cta">Contact Us</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about">About</a><a href="#vision">Vision</a><a href="#verticals">Verticals</a>
+  <a href="#founders">Founders</a><a href="#events">Events</a><a href="#contact">Contact Us</a>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-orb orb1"></div><div class="hero-orb orb2"></div><div class="hero-orb orb3"></div>
+  <div class="hero-inner">
+    <div class="hero-pill">
+      <svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4" fill="#d4af37"/><circle cx="6" cy="6" r="2" fill="#fff"/></svg>
+      Building Independent Businesses Since 2021
+    </div>
+    <h1 class="hero-h1">Elevate Your<br><span class="gold-text">Business</span></h1>
+    <p class="hero-sub">Expert Solutions Across Diverse Industries — Real Estate, Education, Infrastructure &amp; Beyond</p>
+    <div class="hero-btns">
+      <a href="#verticals" class="hero-btn-primary">Explore Verticals</a>
+      <a href="#contact" class="hero-btn-outline">Partner With Us</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><span class="hs-num">5+</span><span class="hs-label">Years Active</span></div><div class="hs-div"></div>
+      <div class="hs"><span class="hs-num">100+</span><span class="hs-label">Partnerships</span></div><div class="hs-div"></div>
+      <div class="hs"><span class="hs-num">7</span><span class="hs-label">Verticals</span></div><div class="hs-div"></div>
+      <div class="hs"><span class="hs-num">20+</span><span class="hs-label">Projects</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <svg viewBox="0 0 20 20" fill="none" stroke-width="1.5"><path d="M10 3v14M4 11l6 6 6-6"/></svg>Scroll
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-left reveal">
+      <div class="section-tag">About Us</div>
+      <h2 class="section-h2">Building Independent<br><span class="gold-span">Businesses Since 2021</span></h2>
+      <p class="section-lead">We don't just advise — we build, operate, and scale alongside you until your business is ready to fly solo.</p>
+      <div class="divider-line"></div>
+      <div class="promise-list">
+        <div class="pl-item"><div class="pl-icon"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><div class="pl-text"><h4>End-to-End Ownership</h4><p>Complete project lifecycle management from blueprint to operations.</p></div></div>
+        <div class="pl-item"><div class="pl-icon"><svg viewBox="0 0 24 24" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="pl-text"><h4>100% Cloud-Native Execution</h4><p>Zero office setup costs. Pure cloud execution with 80% cost savings.</p></div></div>
+        <div class="pl-item"><div class="pl-icon"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="pl-text"><h4>Revenue Share Partnership</h4><p>We succeed when you succeed. Results-driven, not hourly billing.</p></div></div>
+        <div class="pl-item"><div class="pl-icon"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="pl-text"><h4>Lifetime Support Commitment</h4><p>From launch to scale — we stay with you through every milestone.</p></div></div>
+      </div>
+    </div>
+    <div class="about-right reveal">
+      <div class="about-card highlight">
+        <div class="about-card-header"><div class="about-card-icon"><svg viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><h3>Our Core Promise</h3></div>
+        <p>Built on a simple belief: every organization deserves the freedom to grow without being held back by operational constraints. We partner across Real Estate, Education, and emerging sectors to design, launch, and scale independent engines that are lean, compliant, and future-ready.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-header"><div class="about-card-icon"><svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><h3>Our Integrated Model</h3></div>
+        <p>Strategy, structure, and on-ground execution under one roof — so your teams can focus on vision, relationship building, and long-term growth without operational distractions.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-header"><div class="about-card-icon"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg></div><h3>Cloud-Native Ventures</h3></div>
+        <p>No offices, no heavy staffing. Pure cloud execution with significant cost savings — giving your business the agility to scale across Pan-India markets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VISION ── -->
+<section class="vision" id="vision">
+  <div class="vision-inner">
+    <div class="vision-top">
+      <div class="vision-left reveal">
+        <div class="section-tag">Our Purpose</div>
+        <h2 class="section-h2">Vision &amp;<br><span class="gold-span">Commitment</span></h2>
+        <p class="section-lead">We empower businesses and institutions to grow independently by removing operational complexities and redefining traditional corporate structures through our proven cloud-based model.</p>
+        <div class="divider-line"></div>
+        <div class="vision-stats-row">
+          <div class="vs-card"><div class="vs-num">5+</div><div class="vs-label">Years Proven</div></div>
+          <div class="vs-card"><div class="vs-num">100+</div><div class="vs-label">Partnerships</div></div>
+          <div class="vs-card"><div class="vs-num">7</div><div class="vs-label">Verticals</div></div>
+        </div>
+      </div>
+      <div class="vision-boxes reveal">
+        <div class="vbox slide-right"><div class="vbox-icon"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Empowerment</h3><p>Enabling organizations to operate independently and scale confidently without heavy infrastructure investments.</p><ul><li>Cloud-first business models</li><li>Zero upfront office costs</li><li>Scalable revenue engines</li></ul></div>
+        <div class="vbox slide-right"><div class="vbox-icon"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 6v6l4 2"/></svg></div><h3>Excellence</h3><p>Delivering consistent quality across diverse business verticals through integrated strategy, execution, and compliance.</p><ul><li>End-to-end project ownership</li><li>Regulatory compliance expertise</li><li>100% outcome accountability</li></ul></div>
+        <div class="vbox slide-right"><div class="vbox-icon"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><h3>Commitment</h3><p>Dedicated to long-term partnerships and sustainable growth, staying with clients from blueprint to billion-rupee operations.</p><ul><li>Lifelong business partnerships</li><li>Shared success metrics</li><li>Continuous value addition</li></ul></div>
+        <div class="vbox slide-right"><div class="vbox-icon"><svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div><h3>Innovation</h3><p>Leveraging cutting-edge cloud technology and green practices to future-proof businesses across all sectors.</p><ul><li>AI-driven operations</li><li>Sustainable business models</li><li>Digital transformation focus</li></ul></div>
+      </div>
+    </div>
+    <div class="roadmap reveal">
+      <h3>Our Growth Journey</h3>
+      <div class="rm-track">
+        <div class="rm-step"><div class="rm-dot"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><div><div class="rm-year">2021</div><div class="rm-title">Foundation Year</div><div class="rm-desc">Launched with real estate focus (CIN: U70109KA2021PTC153008)</div></div></div>
+        <div class="rm-step"><div class="rm-dot"><svg viewBox="0 0 24 24" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div><div class="rm-year">2022–23</div><div class="rm-title">Vertical Expansion</div><div class="rm-desc">Added 6 new verticals; official website launch with dignitaries</div></div></div>
+        <div class="rm-step"><div class="rm-dot"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><div><div class="rm-year">2024–25</div><div class="rm-title">Scale Phase</div><div class="rm-desc">Pan-India projects; green jobs council affiliation</div></div></div>
+        <div class="rm-step future"><div class="rm-dot"><svg viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div><div class="rm-year">2026+</div><div class="rm-title">National Leadership</div><div class="rm-desc">Target: ₹100Cr+ portfolio across 10+ verticals</div></div></div>
+      </div>
+    </div>
+    <div class="philosophy reveal">
+      <div class="phi-card slide-right"><div class="phi-icon"><svg viewBox="0 0 24 24" stroke-width="2" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><h4>"Freedom to Focus"</h4><p>You focus on vision and customers. We handle operations, compliance, and scaling.</p></div>
+      <div class="phi-card slide-right"><div class="phi-icon"><svg viewBox="0 0 24 24" stroke-width="2" fill="none"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h4>"Cloud-Native Ventures"</h4><p>No offices, no heavy staffing. Pure cloud execution with 80% cost savings.</p></div>
+      <div class="phi-card slide-right"><div class="phi-icon"><svg viewBox="0 0 24 24" stroke-width="2" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><h4>"Outcome Ownership"</h4><p>We succeed when you succeed. Results-driven partnerships, not hourly billing.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VERTICALS HERO ── -->
+<section class="verticals-hero">
+  <div class="verticals-hero-inner reveal">
+    <div class="section-tag">Our Ecosystem</div>
+    <h2 class="section-h2">Explore Our <span class="gold-span">Verticals</span></h2>
+    <p class="section-lead">A unified ecosystem of integrated businesses driving sustainable growth, innovation, and long-term value across industries.</p>
+    <div class="vh-stats">
+      <div class="vhs"><h3>7+</h3><span>Business Verticals</span></div>
+      <div class="vhs"><h3>20+</h3><span>Active Projects</span></div>
+      <div class="vhs"><h3>100%</h3><span>Integrated Solutions</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VERTICALS CAROUSEL ── -->
+<section class="verticals" id="verticals">
+  <div class="carousel-controls">
+    <button class="car-btn" id="carPrev" aria-label="Previous">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button class="car-btn" id="carNext" aria-label="Next">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+  <div class="carousel-wrap" id="carouselWrap">
+    <div class="carousel-track" id="carouselTrack"></div>
+  </div>
+  <div class="carousel-dots" id="carouselDots"></div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section class="projects" id="projects">
+  <div class="projects-inner">
+    <div class="projects-header reveal">
+      <div class="section-tag">In Progress</div>
+      <h2 class="section-h2">Ongoing <span class="gold-span">Projects</span></h2>
+      <p class="section-lead">Strategic initiatives currently under execution across multiple verticals.</p>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card slide-right"><div class="proj-icon-wrap"><svg viewBox="0 0 24 24" stroke-width="2" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="proj-tag">Real Estate</div><h3>Integrated Residential Development</h3><p>Bangalore • Planning &amp; Compliance Phase</p></div>
+      <div class="proj-card slide-right"><div class="proj-icon-wrap"><svg viewBox="0 0 24 24" stroke-width="2" fill="none"><path d="M2 20h20M4 20V10l8-6 8 6v10"/><path d="M10 20v-6h4v6"/></svg></div><div class="proj-tag">Infrastructure</div><h3>Highway Infrastructure Consulting</h3><p>South India • DPR &amp; Advisory</p></div>
+      <div class="proj-card slide-right"><div class="proj-icon-wrap"><svg viewBox="0 0 24 24" stroke-width="2" fill="none"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div class="proj-tag">Education</div><h3>Digital Examination Platform</h3><p>Pan-India • Deployment Phase</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOUNDERS ── -->
+<section class="founders" id="founders">
+  <div class="founders-inner">
+    <div class="founders-header reveal">
+      <div class="section-tag" style="justify-content:center;">Leadership</div>
+      <h2 class="section-h2">Meet the <span class="gold-span">Founders</span></h2>
+      <p class="section-lead" style="margin:0 auto;">The visionaries driving Vaibhav Veda Green Ventures forward.</p>
+    </div>
+    <div class="founders-grid">
+      <div class="founder-wrapper">
+        <div class="founder-profile reveal">
+          <div class="founder-img"><img src="shilpa.jpeg" alt="Dr. Shilpa H Naveen" onerror="this.style.background='linear-gradient(135deg,#0f4a28,#22c55e)'"></div>
+          <div class="founder-info"><h3>Dr. Shilpa H Naveen</h3><div class="role-badge">Executive Director</div><p>Economist · Inspirational Speaker · Social Entrepreneur</p><div class="hover-indicator"><svg viewBox="0 0 24 24" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Click to view profile</div></div>
+        </div>
+        <div class="founder-modal">
+          <div class="modal-overlay"></div>
+          <div class="modal-content">
+            <div class="modal-top"><div class="modal-top-img"><img src="shilpa.jpeg" alt="" onerror="this.style.background='linear-gradient(135deg,#0f4a28,#22c55e)'"></div><div class="modal-top-info"><h3>Dr. Shilpa H Naveen</h3><div class="modal-role-badge">Executive Director</div><div class="modal-tags"><span>Economist</span><span>Speaker</span><span>Social Entrepreneur</span></div></div></div>
+            <div class="modal-body-content">
+              <div class="modal-sec"><h4><svg viewBox="0 0 24 24" stroke-width="2" fill="none"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>About</h4><p>Dr. Shilpa H Naveen is an accomplished economist and social entrepreneur with over 15 years of experience in sustainable business development and community empowerment.</p></div>
+              <div class="modal-sec"><h4><svg viewBox="0 0 24 24" stroke-width="2" fill="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Expertise &amp; Achievements</h4><ul><li>PhD in Economics with specialization in Sustainable Development</li><li>Featured speaker at 50+ international conferences</li><li>Awarded "Social Entrepreneur of the Year" by Global Business Forum (2022)</li><li>Led 100+ community development projects across rural India</li></ul></div>
+              <div class="modal-sec"><h4><svg viewBox="0 0 24 24" stroke-width="2" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Core Philosophy</h4><p>"True business success is measured not just by profit, but by the positive impact we create in communities."</p></div>
+            </div>
+            <div class="modal-footer-bar"><a href="https://www.linkedin.com" target="_blank" class="linkedin-btn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68zm1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>Connect on LinkedIn</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="founder-wrapper">
+        <div class="founder-profile reveal">
+          <div class="founder-img"><img src="naveen.jpeg" alt="Dr. M Naveen Kumar" onerror="this.style.background='linear-gradient(135deg,#0f4a28,#22c55e)'"></div>
+          <div class="founder-info"><h3>Dr. M Naveen Kumar</h3><div class="role-badge">Founder Director</div><p>Tech Visionary · Global Activist · Educational Innovator</p><div class="hover-indicator"><svg viewBox="0 0 24 24" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Click to view profile</div></div>
+        </div>
+        <div class="founder-modal">
+          <div class="modal-overlay"></div>
+          <div class="modal-content">
+            <div class="modal-top"><div class="modal-top-img"><img src="naveen.jpeg" alt="" onerror="this.style.background='linear-gradient(135deg,#0f4a28,#22c55e)'"></div><div class="modal-top-info"><h3>Dr. M Naveen Kumar</h3><div class="modal-role-badge">Founder Director</div><div class="modal-tags"><span>Tech Visionary</span><span>Global Activist</span><span>Ed-Innovator</span></div></div></div>
+            <div class="modal-body-content">
+              <div class="modal-sec"><h4><svg viewBox="0 0 24 24" stroke-width="2" fill="none"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>About</h4><p>Dr. M Naveen Kumar is a technology visionary and educational innovator with a passion for creating scalable solutions that bridge the gap between traditional industries and digital transformation.</p></div>
+              <div class="modal-sec"><h4><svg viewBox="0 0 24 24" stroke-width="2" fill="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Expertise &amp; Achievements</h4><ul><li>PhD in Computer Science with focus on EdTech and Green Technology</li><li>UN Global Youth Ambassador for Sustainable Development Goals</li><li>Pioneered India's first cloud-native business incubation model</li><li>Recognized as "Tech Innovator of the Year" by India Tech Awards (2023)</li></ul></div>
+              <div class="modal-sec"><h4><svg viewBox="0 0 24 24" stroke-width="2" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Core Philosophy</h4><p>"Technology should serve humanity, not replace it. Our mission is to create intelligent systems that enhance human potential."</p></div>
+            </div>
+            <div class="modal-footer-bar"><a href="https://www.linkedin.com" target="_blank" class="linkedin-btn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68zm1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>Connect on LinkedIn</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DIGITAL PRESENCE ── -->
+<section id="shorts" class="dp-section">
+  <div class="dp-inner">
+    <div class="dp-header reveal">
+      <div>
+        <div class="section-tag">Digital Presence</div>
+        <h2 class="section-h2">Our <span class="gold-span">Digital Presence</span></h2>
+        <p class="section-lead" style="max-width:460px;">Expert insights, business stories &amp; industry perspectives — straight from VVG.</p>
+      </div>
+      <a href="https://www.youtube.com/@VaibhavVedaGreenVentures" target="_blank" class="dp-channel-btn">
+        <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" fill="#fff"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#ff0000"/></svg>
+        Visit Channel
+      </a>
+    </div>
+  </div>
+
+  <div class="dp-scroll-outer">
+    <div class="dp-scroll-track">
+
+      <div class="dp-card" onclick="openYouTube('https://youtu.be/n-wTjVKIpp0')">
+        <div class="dp-card-thumb">
+          <img src="https://img.youtube.com/vi/n-wTjVKIpp0/maxresdefault.jpg" alt="" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/n-wTjVKIpp0/hqdefault.jpg'">
+          <div class="dp-card-thumb-overlay"></div>
+          <div class="dp-card-play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5V19L19 12Z"/></svg></div>
+          <span class="dp-card-cat">Strategy</span>
+          <span class="dp-card-views">15K views</span>
+        </div>
+        <div class="dp-card-body">
+          <h4>Digital Marketing for Business Scale</h4>
+          <p>How modern businesses leverage digital channels for exponential growth.</p>
+          <div class="dp-card-foot"><span class="dp-card-duration">3:45</span><span class="dp-card-watch">Watch <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+        </div>
+      </div>
+
+      <div class="dp-card" onclick="openYouTube('https://youtu.be/d2ZPWD2c8G8')">
+        <div class="dp-card-thumb">
+          <img src="https://img.youtube.com/vi/d2ZPWD2c8G8/maxresdefault.jpg" alt="" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/d2ZPWD2c8G8/hqdefault.jpg'">
+          <div class="dp-card-thumb-overlay"></div>
+          <div class="dp-card-play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5V19L19 12Z"/></svg></div>
+          <span class="dp-card-cat">Real Estate</span>
+          <span class="dp-card-views">22K views</span>
+        </div>
+        <div class="dp-card-body">
+          <h4>Real Estate Market Insights 2024</h4>
+          <p>Modern approaches to property investment in India's evolving landscape.</p>
+          <div class="dp-card-foot"><span class="dp-card-duration">4:12</span><span class="dp-card-watch">Watch <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+        </div>
+      </div>
+
+      <div class="dp-card" onclick="openYouTube('https://youtu.be/fE-swbxQNFA')">
+        <div class="dp-card-thumb">
+          <img src="https://img.youtube.com/vi/fE-swbxQNFA/maxresdefault.jpg" alt="" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/fE-swbxQNFA/hqdefault.jpg'">
+          <div class="dp-card-thumb-overlay"></div>
+          <div class="dp-card-play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5V19L19 12Z"/></svg></div>
+          <span class="dp-card-cat">Finance</span>
+          <span class="dp-card-views">18K views</span>
+        </div>
+        <div class="dp-card-body">
+          <h4>Smart Financial Planning for Entrepreneurs</h4>
+          <p>Essential financial strategies every business owner must know.</p>
+          <div class="dp-card-foot"><span class="dp-card-duration">2:55</span><span class="dp-card-watch">Watch <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+        </div>
+      </div>
+
+      <div class="dp-card" onclick="openYouTube('https://youtu.be/5x7wCBHPMk0')">
+        <div class="dp-card-thumb">
+          <img src="https://img.youtube.com/vi/5x7wCBHPMk0/maxresdefault.jpg" alt="" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/5x7wCBHPMk0/hqdefault.jpg'">
+          <div class="dp-card-thumb-overlay"></div>
+          <div class="dp-card-play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5V19L19 12Z"/></svg></div>
+          <span class="dp-card-cat">Legal</span>
+          <span class="dp-card-views">12K views</span>
+        </div>
+        <div class="dp-card-body">
+          <h4>Legal Essentials Every Business Owner Needs</h4>
+          <p>Key legal frameworks to protect your venture from day one.</p>
+          <div class="dp-card-foot"><span class="dp-card-duration">5:30</span><span class="dp-card-watch">Watch <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+        </div>
+      </div>
+
+      <div class="dp-card" onclick="openYouTube('https://youtu.be/0YfIwvQ2SaE')">
+        <div class="dp-card-thumb">
+          <img src="https://img.youtube.com/vi/0YfIwvQ2SaE/maxresdefault.jpg" alt="" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/0YfIwvQ2SaE/hqdefault.jpg'">
+          <div class="dp-card-thumb-overlay"></div>
+          <div class="dp-card-play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5V19L19 12Z"/></svg></div>
+          <span class="dp-card-cat">Marketing</span>
+          <span class="dp-card-views">25K views</span>
+        </div>
+        <div class="dp-card-body">
+          <h4>Growth Through Digital Channels</h4>
+          <p>Effective digital strategies built for green ventures and startups.</p>
+          <div class="dp-card-foot"><span class="dp-card-duration">0:55</span><span class="dp-card-watch">Watch <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+        </div>
+      </div>
+
+      <!-- Duplicates for seamless loop -->
+      <div class="dp-card" onclick="openYouTube('https://youtu.be/n-wTjVKIpp0')">
+        <div class="dp-card-thumb">
+          <img src="https://img.youtube.com/vi/n-wTjVKIpp0/maxresdefault.jpg" alt="" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/n-wTjVKIpp0/hqdefault.jpg'">
+          <div class="dp-card-thumb-overlay"></div>
+          <div class="dp-card-play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5V19L19 12Z"/></svg></div>
+          <span class="dp-card-cat">Strategy</span>
+          <span class="dp-card-views">15K views</span>
+        </div>
+        <div class="dp-card-body">
+          <h4>Digital Marketing for Business Scale</h4>
+          <p>How modern businesses leverage digital channels for exponential growth.</p>
+          <div class="dp-card-foot"><span class="dp-card-duration">3:45</span><span class="dp-card-watch">Watch <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+        </div>
+      </div>
+
+      <div class="dp-card" onclick="openYouTube('https://youtu.be/d2ZPWD2c8G8')">
+        <div class="dp-card-thumb">
+          <img src="https://img.youtube.com/vi/d2ZPWD2c8G8/maxresdefault.jpg" alt="" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/d2ZPWD2c8G8/hqdefault.jpg'">
+          <div class="dp-card-thumb-overlay"></div>
+          <div class="dp-card-play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5V19L19 12Z"/></svg></div>
+          <span class="dp-card-cat">Real Estate</span>
+          <span class="dp-card-views">22K views</span>
+        </div>
+        <div class="dp-card-body">
+          <h4>Real Estate Market Insights 2024</h4>
+          <p>Modern approaches to property investment in India's evolving landscape.</p>
+          <div class="dp-card-foot"><span class="dp-card-duration">4:12</span><span class="dp-card-watch">Watch <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+        </div>
+      </div>
+
+      <div class="dp-card" onclick="openYouTube('https://youtu.be/fE-swbxQNFA')">
+        <div class="dp-card-thumb">
+          <img src="https://img.youtube.com/vi/fE-swbxQNFA/maxresdefault.jpg" alt="" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/fE-swbxQNFA/hqdefault.jpg'">
+          <div class="dp-card-thumb-overlay"></div>
+          <div class="dp-card-play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5V19L19 12Z"/></svg></div>
+          <span class="dp-card-cat">Finance</span>
+          <span class="dp-card-views">18K views</span>
+        </div>
+        <div class="dp-card-body">
+          <h4>Smart Financial Planning for Entrepreneurs</h4>
+          <p>Essential financial strategies every business owner must know.</p>
+          <div class="dp-card-foot"><span class="dp-card-duration">2:55</span><span class="dp-card-watch">Watch <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+        </div>
+      </div>
+
+      <div class="dp-card" onclick="openYouTube('https://youtu.be/5x7wCBHPMk0')">
+        <div class="dp-card-thumb">
+          <img src="https://img.youtube.com/vi/5x7wCBHPMk0/maxresdefault.jpg" alt="" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/5x7wCBHPMk0/hqdefault.jpg'">
+          <div class="dp-card-thumb-overlay"></div>
+          <div class="dp-card-play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5V19L19 12Z"/></svg></div>
+          <span class="dp-card-cat">Legal</span>
+          <span class="dp-card-views">12K views</span>
+        </div>
+        <div class="dp-card-body">
+          <h4>Legal Essentials Every Business Owner Needs</h4>
+          <p>Key legal frameworks to protect your venture from day one.</p>
+          <div class="dp-card-foot"><span class="dp-card-duration">5:30</span><span class="dp-card-watch">Watch <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+        </div>
+      </div>
+
+      <div class="dp-card" onclick="openYouTube('https://youtu.be/0YfIwvQ2SaE')">
+        <div class="dp-card-thumb">
+          <img src="https://img.youtube.com/vi/0YfIwvQ2SaE/maxresdefault.jpg" alt="" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/0YfIwvQ2SaE/hqdefault.jpg'">
+          <div class="dp-card-thumb-overlay"></div>
+          <div class="dp-card-play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5V19L19 12Z"/></svg></div>
+          <span class="dp-card-cat">Marketing</span>
+          <span class="dp-card-views">25K views</span>
+        </div>
+        <div class="dp-card-body">
+          <h4>Growth Through Digital Channels</h4>
+          <p>Effective digital strategies built for green ventures and startups.</p>
+          <div class="dp-card-foot"><span class="dp-card-duration">0:55</span><span class="dp-card-watch">Watch <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── EVENTS ── -->
+<section class="events" id="events">
+  <!-- Hero Banner -->
+  <div class="ev-hero">
+    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1600&q=80" alt="Events" onerror="this.parentElement.style.background='linear-gradient(160deg,#071a0e,#0f4a28)'">
+    <div class="ev-hero-overlay"></div>
+    <div class="ev-hero-text">
+      <div class="section-tag">Global Engagement</div>
+      <h2>Events &amp;<br>Participation</h2>
+      <p>Showcasing our leadership and active engagement in global industry forums, shaping the future of sustainable ventures.</p>
+    </div>
+  </div>
+
+  <!-- Body: upcoming list + sidebar -->
+  <div class="ev-body">
+    <div class="ev-body-inner">
+      <!-- Left: events -->
+      <div>
+        <div class="ev-item">
+          <div class="ev-item-ic"><svg viewBox="0 0 24 24" stroke-width="2" fill="none"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <div>
+            <div class="ev-item-date">OCT 24, 2024</div>
+            <h4>Business &amp; Leadership Summit</h4>
+            <p>A gathering of global visionaries discussing leadership strategies for a sustainable future. We are proud to present our roadmap for green industrial growth.</p>
+            <a href="#" class="ev-item-link">Event Details <svg viewBox="0 0 24 24" stroke-width="2" fill="none"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+        <div class="ev-item">
+          <div class="ev-item-ic"><svg viewBox="0 0 24 24" stroke-width="2" fill="none"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <div>
+            <div class="ev-item-date">NOV 12, 2024</div>
+            <h4>Education Technology Conference</h4>
+            <p>Innovating the future of digital learning. Exploring the intersection of green tech and educational infrastructure for the next generation.</p>
+            <a href="#" class="ev-item-link">Event Details <svg viewBox="0 0 24 24" stroke-width="2" fill="none"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+        <div class="ev-item">
+          <div class="ev-item-ic"><svg viewBox="0 0 24 24" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <div>
+            <div class="ev-item-date">DEC 05, 2024</div>
+            <h4>Infrastructure &amp; Urban Development</h4>
+            <p>Building resilient urban ecosystems. Join our panel discussion on zero-waste infrastructure models for rapidly expanding metropolises.</p>
+            <a href="#" class="ev-item-link">Event Details <svg viewBox="0 0 24 24" stroke-width="2" fill="none"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: collage -->
+      <div class="ev-sidebar">
+        <div class="ev-collage-box">
+          <h4><svg viewBox="0 0 24 24" stroke-width="2" fill="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Event Moments</h4>
+          <div class="collage-grid">
+            <div class="cg-tile wide"><img src="realestate.jpg" alt="Real Estate" onerror="this.parentElement.style.background='linear-gradient(135deg,#0f4a28,#22c55e)'"></div>
+            <div class="cg-tile"><img src="infrastructure.jpg" alt="Infrastructure" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a7a4a,#4ade80)'"></div>
+            <div class="cg-tile"><img src="education.jpg" alt="Education" onerror="this.parentElement.style.background='linear-gradient(135deg,#d4af37,#f0d060)'"></div>
+            <div class="cg-tile"><img src="finance.jpg" alt="Finance" onerror="this.parentElement.style.background='linear-gradient(135deg,#0f4a28,#d4af37)'"></div>
+            <div class="cg-tile wide"><img src="interiors.jpeg" alt="Interiors" onerror="this.parentElement.style.background='linear-gradient(135deg,#22c55e,#0a2e1a)'"></div>
+            <div class="cg-tile"><img src="legal.jpg" alt="Legal" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a7a4a,#0f4a28)'"></div>
+            <div class="cg-tile"><img src="media.jpg" alt="Media" onerror="this.parentElement.style.background='linear-gradient(135deg,#d4af37,#0f4a28)'"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gallery strip -->
+  <div class="ev-gallery">
+    <div class="ev-gallery-inner">
+      <div class="ev-gallery-header">
+        <div class="ev-gallery-header-left">
+          <h3>Event Gallery</h3>
+          <p>Moments from our recent participations across the globe</p>
+        </div>
+        <div class="ev-gallery-header-right">
+          <button class="gal-nav-btn"><svg viewBox="0 0 24 24" stroke-width="2" fill="none"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="gal-nav-btn"><svg viewBox="0 0 24 24" stroke-width="2" fill="none"><path d="M9 18l6-6-6-6"/></svg></button>
+        </div>
+      </div>
+      <div class="gallery-strip">
+        <div class="gal-tile-main"><img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600&q=80" alt="" onerror="this.parentElement.style.background='#1a7a4a'"></div>
+        <div class="gal-tile-main"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80" alt="" onerror="this.parentElement.style.background='#0f4a28'"></div>
+        <div class="gal-tile-main"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80" alt="" onerror="this.parentElement.style.background='#1a7a4a'"></div>
+        <div class="gal-tile-main"><img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&q=80" alt="" onerror="this.parentElement.style.background='#d4af37'"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-top">
+      <div class="contact-heading reveal">
+        <div class="section-tag">Get In Touch</div>
+        <h2 class="section-h2">Let's Build Something<br><span class="gold-span">Meaningful</span></h2>
+        <p class="section-lead">Whether you are launching a new venture or expanding an existing one, Vaibhav Veda Green Ventures is ready to partner with you.</p>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-wrap reveal">
+        <h3>Send Us a Message</h3>
+        <p>Fill in your details and we'll get back to you shortly.</p>
+        <form id="contactForm" onsubmit="submitForm(event)">
+          <div class="cf-row">
+            <div class="cf-field">
+              <label>Full Name *</label>
+              <input type="text" name="name" placeholder="Your full name" required>
+            </div>
+            <div class="cf-field">
+              <label>Phone Number *</label>
+              <input type="tel" name="phone" placeholder="+91 00000 00000" required>
+            </div>
+          </div>
+          <div class="cf-row">
+            <div class="cf-field">
+              <label>Email Address *</label>
+              <input type="email" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="cf-field">
+              <label>Company / Organisation</label>
+              <input type="text" name="company" placeholder="Your company name">
+            </div>
+          </div>
+          <div class="cf-field">
+            <label>Subject / Query Type *</label>
+            <select name="subject" required>
+              <option value="" disabled selected>Select a topic</option>
+              <option>Real Estate Enquiry</option>
+              <option>Infrastructure Consulting</option>
+              <option>Education Solutions</option>
+              <option>Interior & Design</option>
+              <option>Financial Services</option>
+              <option>Legal Consulting</option>
+              <option>Media & Branding</option>
+              <option>Partnership / Collaboration</option>
+              <option>General Enquiry</option>
+            </select>
+          </div>
+          <div class="cf-field">
+            <label>Your Message *</label>
+            <textarea name="message" placeholder="Tell us about your project or query..." required></textarea>
+          </div>
+          <button type="submit" class="cf-submit">Send Message →</button>
+          <div class="cf-success" id="cfSuccess">✓ Message sent! We'll be in touch shortly.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="footer-main-inner">
+      <!-- Brand col -->
+      <div class="footer-brand-col">
+        <div class="footer-logo-wrap">
+          <img src="VVG Transpent BG.png" alt="VVG Logo" class="footer-logo-img" onerror="this.style.display='none'">
+          <div>
+            <div class="footer-brand-name">Vaibhav Veda<br>Green Ventures</div>
+            <div class="footer-brand-tag">Est. 2021 · Bangalore</div>
+          </div>
+        </div>
+        <p class="footer-brand-desc">Redefining Possibilities, One Vertical at a Time. Building independent businesses through cloud-native innovation and sustainable practices.</p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/vaibhav-veda-green-ventures/" target="_blank" class="fsoc linkedin" title="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.youtube.com" target="_blank" class="fsoc" title="YouTube">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="mailto:ceovedagreenventures@gmail.com" class="fsoc" title="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+          <a href="https://www.vaibhavvedagreen.in" target="_blank" class="fsoc" title="Website">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#vision">Vision</a></li>
+          <li><a href="#verticals">Our Verticals</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#founders">Leadership</a></li>
+          <li><a href="#events">Events</a></li>
+        </ul>
+      </div>
+
+      <!-- Verticals -->
+      <div class="footer-col">
+        <h5>Verticals</h5>
+        <ul>
+          <li><a href="#verticals">Real Estate</a></li>
+          <li><a href="#verticals">Infrastructure</a></li>
+          <li><a href="#verticals">Education</a></li>
+          <li><a href="#verticals">Interiors</a></li>
+          <li><a href="#verticals">Finance</a></li>
+          <li><a href="#verticals">Legal</a></li>
+          <li><a href="#verticals">Media</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-contact-col">
+        <h5>Contact</h5>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Barton Centre, MG Road, Bangalore</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:ceovedagreenventures@gmail.com">ceovedagreenventures@gmail.com</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+919035847279">+91 90358 47279</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer bottom bar -->
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <div class="footer-bottom-left">
+        <p>© 2025 <span>Vaibhav Veda Green Ventures Pvt. Ltd.</span> · CIN: U70109KA2021PTC153008 · All rights reserved</p>
+      </div>
+      <div class="footer-bottom-right">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── NAV ──
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40);});
+const hb=document.getElementById('hamburger'),mn=document.getElementById('mobileNav');
+hb.addEventListener('click',()=>{hb.classList.toggle('open');mn.classList.toggle('show');});
+mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{hb.classList.remove('open');mn.classList.remove('show');}));
+
+// ── REVEAL ──
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(r=>io.observe(r));
+
+// Slide-from-right observer — fires on scroll into view
+const ioRight=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ioRight.unobserve(e.target);}});},{threshold:0.15,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.slide-right').forEach(r=>ioRight.observe(r));
+
+// ── ACTIVE NAV ──
+const sections=document.querySelectorAll('section[id]'),navLinks=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{let cur='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-120)cur=s.id;});if(cur)navLinks.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+cur));});
+
+// ── FOUNDERS MODAL ──
+let activeModal=null;
+const closeModal=()=>{if(activeModal){activeModal.classList.remove('active');activeModal=null;document.body.style.overflow='';}};
+document.querySelectorAll('.founder-wrapper').forEach(w=>{
+  const profile=w.querySelector('.founder-profile'),modal=w.querySelector('.founder-modal'),overlay=modal.querySelector('.modal-overlay');
+  profile.addEventListener('click',()=>{if(activeModal===modal){closeModal();}else{closeModal();modal.classList.add('active');activeModal=modal;document.body.style.overflow='hidden';}});
+  overlay.addEventListener('click',closeModal);
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+// ── YOUTUBE ──
+function openYouTube(u){window.open(u,'_blank');}
+
+// ── CONTACT FORM ──
+function submitForm(e){
+  e.preventDefault();
+  var f=document.getElementById('contactForm');
+  var name=f.name.value, email=f.email.value, phone=f.phone.value,
+      company=f.company.value, subject=f.subject.value, message=f.message.value;
+  var body='Name: '+name+'%0APhone: '+phone+'%0ACompany: '+company+'%0ASubject: '+subject+'%0A%0AMessage:%0A'+encodeURIComponent(message);
+  var mailto='mailto:ceovedagreenventures@gmail.com?subject='+encodeURIComponent('[VVG Enquiry] '+subject)+'&body='+body;
+  window.location.href=mailto;
+  setTimeout(function(){
+    document.getElementById('cfSuccess').classList.add('show');
+    f.reset();
+    setTimeout(function(){document.getElementById('cfSuccess').classList.remove('show');},5000);
+  },500);
+}
+
+// ── VERTICALS CAROUSEL (hover-reveal, real-time drag, infinite) ──
+(function(){
+  var CARDS=[
+    {num:'01',badge:'Real Estate',t1:'Veda Green',t2:'Real Estates',sub:'& Development',chips:['Residential','Commercial','Industrial','Hospitality'],desc:'We help buy, build, occupy, and invest in Residential, Commercial, Industrial, Retail, and Hospitality real estate with end-to-end statutory compliance for building, occupancy, and investment.',img:'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80'},
+    {num:'02',badge:'Infrastructure',t1:'Veda Green',t2:'Infrastructures',sub:'Projects & Consulting',chips:['Road Construction','Civil Engineering','Highway'],desc:'Building the foundations for sustainable development across South India and beyond — road construction, civil engineering consulting, highway infrastructure, and road rehabilitation.',img:'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80'},
+    {num:'03',badge:'Education',t1:'Veda Green',t2:'Education',sub:'& Training Solutions',chips:['High-Stake Exams','Secure Proctoring','Scheduling'],desc:'One-stop solution for online assessment, proctoring solutions, and ready-made content for high-stake online exams. Candidates schedule flexibly with secure proctoring and exceptional support.',img:'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80'},
+    {num:'04',badge:'Interiors',t1:'Veda Green',t2:'Interiors',sub:'& Designs',chips:['Interior Design','Smart Homes','Landscape'],desc:'We design inspirational & futuristic spaces that transform how people live and work — interior & exterior design, furniture & landscape, smart homes, and full project management.',img:'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80'},
+    {num:'05',badge:'Finance',t1:'Veda Green',t2:'Financial',sub:'Consulting Services',chips:['Corporate Loans','Project Finance','Housing Loans'],desc:'Comprehensive financial solutions at every stage of growth — corporate loans, project finance, builder loans, and housing loans tailored to your needs.',img:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80'},
+    {num:'06',badge:'Legal',t1:'Veda Green',t2:'Legal',sub:'Consulting',chips:['Corporate Law','Contracts','Compliance','Disputes'],desc:'Advising domestic & international companies, banks, financial institutions, promoter groups, and PSUs with commercially viable legal advice and committed representation.',img:'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80'},
+    {num:'07',badge:'Media',t1:'Veda Green',t2:'Media',sub:'& Branding',chips:['Digital Marketing','Brand Strategy','Video','SEO'],desc:'Helping clients launch and expand ventures with impactful digital presence, creative content development, and data-driven marketing strategies across all platforms.',img:'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80'}
+  ];
+  var N=CARDS.length;
+
+  function mkCard(d){
+    var chips=d.chips.map(function(c){return '<span>'+c+'</span>';}).join('');
+    var el=document.createElement('div');
+    el.className='vcard';
+    el.innerHTML=
+      '<div class="vcard-front">'
+        +'<div class="vcard-front-bg" style="background-image:url(\''+d.img+'\')"></div>'
+        +'<div class="vcard-front-overlay"></div>'
+        +'<div class="vcard-front-content">'
+          +'<div class="vcard-num">'+d.num+'</div>'
+          +'<div class="vcard-badge">'+d.badge+'</div>'
+          +'<div class="vcard-title">'+d.t1+'<br>'+d.t2+'</div>'
+          +'<div class="vcard-sub">'+d.sub+'</div>'
+          +'<div class="vcard-chips">'+chips+'</div>'
+          +'<div class="vcard-hint"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Hover to explore</div>'
+        +'</div>'
+      +'</div>'
+      +'<div class="vcard-reveal">'
+        +'<div class="vcard-reveal-bg" style="background-image:url(\''+d.img+'\')"></div>'
+        +'<div class="vcard-reveal-overlay"></div>'
+        +'<div class="vcard-reveal-content">'
+          +'<div class="vcard-badge">'+d.badge+'</div>'
+          +'<h3>'+d.t1+' '+d.t2+'</h3>'
+          +'<p>'+d.desc+'</p>'
+          +'<div class="vcard-chips">'+chips+'</div>'
+        +'</div>'
+      +'</div>';
+    return el;
+  }
+
+  var track=document.getElementById('carouselTrack'),wrap=document.getElementById('carouselWrap'),dotsEl=document.getElementById('carouselDots');
+  if(!track||!wrap)return;
+
+  function buildTrack(){
+    track.innerHTML='';
+    for(var r=0;r<3;r++)for(var i=0;i<N;i++)track.appendChild(mkCard(CARDS[i]));
+  }
+  function buildDots(){
+    dotsEl.innerHTML='';
+    for(var i=0;i<N;i++){
+      var d=document.createElement('span');
+      d.className='cdot'+(i===0?' active':'');
+      (function(idx){d.addEventListener('click',function(e){e.stopPropagation();gotoReal(idx,true);});})(i);
+      dotsEl.appendChild(d);
+    }
+  }
+  function updDots(ri){dotsEl.querySelectorAll('.cdot').forEach(function(d,i){d.classList.toggle('active',i===ri);});}
+
+  var pos=N,autoT=null;
+  function CW(){var all=track.querySelectorAll('.vcard');return all.length?all[0].offsetWidth+28:408;}
+
+  function setX(anim,overrideOffset){
+    var offset=overrideOffset!==undefined?overrideOffset:(pos*CW()-(wrap.offsetWidth/2-CW()/2));
+    track.style.transition=anim?'transform 0.55s cubic-bezier(.4,0,.2,1)':'none';
+    track.style.transform='translateX('+(-offset)+'px)';
+    updDots(((pos-N)%N+N)%N);
+  }
+  function snapOffset(){return pos*CW()-(wrap.offsetWidth/2-CW()/2);}
+
+  track.addEventListener('transitionend',function(){
+    if(pos<N){pos+=N;setX(false);}
+    else if(pos>=N+N){pos-=N;setX(false);}
+  });
+
+  function gotoPos(p,anim){pos=p;setX(anim!==false);}
+  function gotoReal(ri,anim){pos=N+ri;setX(anim!==false);}
+  function next(){gotoPos(pos+1,true);}
+  function prev(){gotoPos(pos-1,true);}
+  function startAuto(){stopAuto();autoT=setInterval(next,3400);}
+  function stopAuto(){clearInterval(autoT);}
+
+  // Pause auto on hover
+  wrap.addEventListener('mouseenter',stopAuto);
+  wrap.addEventListener('mouseleave',startAuto);
+
+  // ── REAL-TIME DRAG (mouse) ──
+  var isDragging=false, startX=0, startOffset=0, moved=false;
+  wrap.addEventListener('mousedown',function(e){
+    isDragging=true; moved=false;
+    startX=e.clientX;
+    startOffset=snapOffset();
+    track.style.transition='none';
+    wrap.style.cursor='grabbing';
+    stopAuto();
+    e.preventDefault();
+  });
+  window.addEventListener('mousemove',function(e){
+    if(!isDragging)return;
+    var dx=e.clientX-startX;
+    if(Math.abs(dx)>4)moved=true;
+    track.style.transform='translateX('+(-(startOffset-dx))+'px)';
+  });
+  window.addEventListener('mouseup',function(e){
+    if(!isDragging)return;
+    isDragging=false;
+    wrap.style.cursor='grab';
+    var dx=e.clientX-startX;
+    if(Math.abs(dx)>60){
+      if(dx<0)next(); else prev();
+    } else {
+      setX(true); // snap back
+    }
+    startAuto();
+  });
+
+  // ── REAL-TIME DRAG (touch) ──
+  var touchStartX=0, touchStartOffset=0, touchMoved=false;
+  wrap.addEventListener('touchstart',function(e){
+    touchStartX=e.touches[0].clientX;
+    touchStartOffset=snapOffset();
+    touchMoved=false;
+    track.style.transition='none';
+    stopAuto();
+  },{passive:true});
+  wrap.addEventListener('touchmove',function(e){
+    var dx=e.touches[0].clientX-touchStartX;
+    touchMoved=true;
+    track.style.transform='translateX('+(-(touchStartOffset-dx))+'px)';
+  },{passive:true});
+  wrap.addEventListener('touchend',function(e){
+    var dx=e.changedTouches[0].clientX-touchStartX;
+    if(Math.abs(dx)>50){if(dx<0)next();else prev();}
+    else setX(true);
+    startAuto();
+  });
+
+  window.addEventListener('resize',function(){setX(false);});
+
+  buildTrack();buildDots();
+  // On mobile use native scroll, skip JS positioning
+  if(window.innerWidth <= 600){
+    track.style.transform='none';
+    track.style.transition='none';
+    // Remove duplicates for mobile native scroll
+    var allCards=track.querySelectorAll('.vcard');
+    for(var i=allCards.length-1;i>=N;i--){track.removeChild(allCards[i]);}
+    return;
+  }
+  document.getElementById('carPrev').addEventListener('click',function(){prev();stopAuto();setTimeout(startAuto,4000);});
+  document.getElementById('carNext').addEventListener('click',function(){next();stopAuto();setTimeout(startAuto,4000);});
+  requestAnimationFrame(function(){setX(false);startAuto();});
+})();
+</script>
+</body>
+</html>
